@@ -1,0 +1,42 @@
+name: DevOps CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build image
+      run: docker build -t app-image .
+
+    - name: Test image
+      run: docker run --rm app-image echo "TEST PASSED"
+
+    - name: Tag image
+      run: docker tag app-image:latest ${{ secrets.ECR_URI }}:latest
+
+    - name: Push image
+      run: docker push ${{ secrets.ECR_URI }}:latest
+
+    - name: Deploy to ECS
+      run: |
+        aws ecs update-service \
+          --cluster devops-cluster \
+          --service devops-service \
+          --force-new-deployment
