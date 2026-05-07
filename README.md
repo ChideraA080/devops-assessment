@@ -44,6 +44,13 @@ Running Application
      ↓
 Logs → CloudWatch
 ```
+
+### Application Access
+
+Application URL:
+http://devops-alb-21328564.us-east-1.elb.amazonaws.com
+
+
 ### Flow Explanation:
 - Code is pushed to GitHub
 - GitHub Actions builds Docker image
