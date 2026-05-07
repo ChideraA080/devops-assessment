@@ -102,6 +102,12 @@ This provisions:
 docker build -t app-image .
 docker run -p 5000:5000 app-image
 ```
+The application will be accessible at:
+
+```
+http://localhost:5000
+```
+
 4. CI/CD Setup (GitHub Actions)
 
 Add the following secrets in GitHub:
@@ -128,7 +134,54 @@ Stages:
 
 - Deploy to Amazon ECS
 
-Design Decisions
+### Amazon ECR Configuration
+
+Amazon ECR was used as the private container registry for storing Docker images used by the ECS service.
+
+The CI/CD pipeline automatically:
+
+- Builds the Docker image
+- Tags the image
+- Pushes the image to Amazon ECR
+
+Example Docker image push flow:
+```
+docker build -t app-image .
+docker tag app-image:latest <ECR_URI>:latest
+docker push <ECR_URI>:latest
+```
+ECS task definitions reference the latest image stored in ECR during deployment.
+
+### Amazon ECS Deployment Configuration
+
+The application was deployed using Amazon ECS Fargate to avoid manual server management and simplify container orchestration.
+
+Terraform provisions:
+
+ECS Cluster
+ECS Service
+ECS Task Definition
+IAM Execution Roles
+Networking resources
+Application Load Balancer (ALB)
+
+The ECS task definition specifies:
+
+- Docker image from Amazon ECR
+- CPU and memory allocation
+- Container port mappings
+- CloudWatch logging configuration
+
+Example ECS container configuration:
+
+```
+{
+  "containerPort": 5000,
+  "hostPort": 5000
+}
+```
+
+### Design Decisions
 
 1. ECS over EC2
 
