@@ -221,7 +221,7 @@ ECS Service Running
 ![ECS Service](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787439.jpg)
 
 CI/CD Pipeline Success
-![CI/CD Pipeline]()
+![CI/CD Pipeline](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/Devops%20Assessment%20Pipeline.png)
 
 CloudWatch Logs
 ![CloudWatch](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787508.jpg)
@@ -255,3 +255,21 @@ This project demonstrates a complete DevOps lifecycle including:
 
 
 It reflects a production-style deployment workflow focused on automation, scalability, and reliability.
+
+## Lessons Learned
+
+Working on this project gave me practical experience with real DevOps workflows and cloud deployment challenges.
+
+One of the biggest things I learned was how different AWS services work together in a deployment pipeline. While building this project, I encountered issues related to ECS task failures, Docker image deployment, CloudWatch logging, and CI/CD pipeline errors. Troubleshooting those problems helped me better understand how ECS, ECR, IAM roles, networking, and GitHub Actions interact in a real environment.
+
+I also learned the importance of proper debugging and reading service logs instead of guessing the issue. Fixing problems like `CannotPullContainerError`, pending ECS tasks, and incorrect Docker build paths improved my confidence in working with containerized applications and cloud infrastructure.
+
+Overall, this project strengthened my understanding of:
+- Infrastructure as Code using Terraform
+- Docker containerization
+- AWS ECS and ECR deployments
+- CI/CD automation with GitHub Actions
+- CloudWatch logging and monitoring
+- Debugging deployment and infrastructure issues
+
+This project gave me hands-on exposure to building and managing a production-style deployment workflow using modern DevOps practices.
