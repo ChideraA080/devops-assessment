@@ -1,4 +1,5 @@
 ##  DevOps Production-Ready Application Deployment
+
 ### Project Overview
 
 This project demonstrates a production-ready DevOps pipeline that automates the build, test, and deployment of a containerized application to AWS.
@@ -12,7 +13,8 @@ Cloud deployment (AWS ECS + ECR)
 Basic monitoring readiness via AWS-native services
 
 The goal is to simulate a real-world production deployment pipeline.
-Architecture Overview
+
+### Architecture Overview
 
 The system architecture consists of the following components:
 
@@ -24,6 +26,9 @@ The system architecture consists of the following components:
 - Application is exposed via ECS service (optionally behind ALB)
 
 ### Flow Diagram (logical)
+
+![Architecture](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/Devops%20Assessement.drawio.png)
+
 ```
 GitHub Repo
      ↓
@@ -213,22 +218,25 @@ Infrastructure is defined as code to ensure:
 All screenshots are stored in: docs/screenshots/
 
 ECS Service Running
-![ECS Service](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+![ECS Service](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787439.jpg)
 
 CI/CD Pipeline Success
-![CI/CD Pipeline](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+![CI/CD Pipeline]()
 
 CloudWatch Logs
-![CloudWatch](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+![CloudWatch](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787508.jpg)
 
 Image pushed to ECR
-![Image pushed to ECR](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+![Image pushed to ECR](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787462.jpg)
 
 ECR Repository Image
-![ECR Repository Image](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+![ECR Repository Image](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787585.jpg)
+
+ALB Showing DNS
+![ALB WITH DNS](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787460.jpg)
 
 Application Running in Browser (ALB URL)
-![ALB URL](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+![ALB URL](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/1000787461.jpg)
 
 
 ### Conclusion
