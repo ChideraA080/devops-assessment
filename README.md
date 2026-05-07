@@ -27,8 +27,6 @@ The system architecture consists of the following components:
 
 ### Flow Diagram (logical)
 
-![Architecture](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/Devops%20Assessement.drawio.png)
-
 ```
 GitHub Repo
      ↓
@@ -45,12 +43,6 @@ Running Application
 Logs → CloudWatch
 ```
 
-### Application Access
-
-Application URL:
-http://devops-alb-21328564.us-east-1.elb.amazonaws.com
-
-
 ### Flow Explanation:
 - Code is pushed to GitHub
 - GitHub Actions builds Docker image
@@ -58,6 +50,11 @@ http://devops-alb-21328564.us-east-1.elb.amazonaws.com
 - ECS pulls image and deploys container
 - Application is exposed via ECS service / Load Balancer
 - Logs are sent to CloudWatch
+
+### Application Access
+
+Application URL:
+http://devops-alb-21328564.us-east-1.elb.amazonaws.com
 
 ### Deployment Steps
 
