@@ -36,7 +36,17 @@ Amazon ECR (Image Registry)
 Amazon ECS (Deployment)
      ↓
 Running Application
+     ↓
+Logs → CloudWatch
 ```
+### Flow Explanation:
+- Code is pushed to GitHub
+- GitHub Actions builds Docker image
+- Image is pushed to Amazon ECR
+- ECS pulls image and deploys container
+- Application is exposed via ECS service / Load Balancer
+- Logs are sent to CloudWatch
+
 ### Deployment Steps
 
 1. Clone Repository
@@ -192,6 +202,35 @@ Infrastructure is defined as code to ensure:
 
 - Implement Terraform modules for better scalability
 
+### Issues Encountered & Fixes
+- ECS tasks stuck in PENDING → Fixed by correcting subnet/network configuration
+- CannotPullContainerError → Fixed by ensuring correct :latest image pushed to ECR
+- CI/CD Docker build failure → Fixed incorrect Dockerfile path in GitHub Actions workflow
+- CloudWatch logs not appearing → Fixed IAM execution role permissions and log group configuration
+
+### Screenshots
+
+All screenshots are stored in: docs/screenshots/
+
+ECS Service Running
+![ECS Service](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+
+CI/CD Pipeline Success
+![CI/CD Pipeline](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+
+CloudWatch Logs
+![CloudWatch](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+
+Image pushed to ECR
+![Image pushed to ECR](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+
+ECR Repository Image
+![ECR Repository Image](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+
+Application Running in Browser (ALB URL)
+![ALB URL](https://github.com/ChideraA080/LEMP-PROJECT/blob/main/LEMP%20IMAGE/Screenshot%20of%20PHP%20after%20setting%20nginx%20configuration.png)
+
+
 ### Conclusion
 
 This project demonstrates a complete DevOps lifecycle including:
@@ -203,5 +242,8 @@ This project demonstrates a complete DevOps lifecycle including:
 - CI/CD automation (GitHub Actions)
 
 - Cloud deployment (AWS ECS + ECR)
+
+- Logging and monitoring (CloudWatch)
+
 
 It reflects a production-style deployment workflow focused on automation, scalability, and reliability.
