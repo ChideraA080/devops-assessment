@@ -27,6 +27,10 @@ The system architecture consists of the following components:
 
 ### Flow Diagram (logical)
 
+Architecture
+
+![Architecture](https://github.com/ChideraA080/devops-assessment/blob/main/Screenshots%20Devops%20Assessment/Devops%20Assessement.drawio.png)
+
 ```
 GitHub Repo
      ↓
