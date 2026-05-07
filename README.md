@@ -100,7 +100,7 @@ This provisions:
 
 ```
 docker build -t app-image .
-docker run --rm app-image
+docker run -p 5000:5000 app-image
 ```
 4. CI/CD Setup (GitHub Actions)
 
