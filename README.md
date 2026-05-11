@@ -60,6 +60,31 @@ Logs → CloudWatch
 Application URL:
 http://devops-alb-21328564.us-east-1.elb.amazonaws.com
 
+### Infrastructure Teardown Notice
+
+Important Notice:
+After successfully testing and verifying the deployment, the AWS infrastructure for this project was intentionally destroyed using terraform destroy to prevent unnecessary cloud billing charges.
+
+This project was deployed on a non-Free Tier AWS account where active resources such as:
+
+- Amazon ECS Fargate
+- Application Load Balancer (ALB)
+- Elastic Container Registry (ECR)
+- CloudWatch Logs
+- Networking resources
+
+continue to incur costs while running.
+
+To maintain cost efficiency and follow responsible cloud management practices, all resources were properly torn down after confirming that:
+
+- The CI/CD pipeline executed successfully
+- The Docker image was built and pushed to Amazon ECR
+- The ECS service deployed successfully
+- The application was accessible through the Load Balancer URL
+- CloudWatch logs were functioning correctly
+
+As a result, the previously generated live ALB URL may no longer be accessible at the time of review.
+
 ### Deployment Steps
 
 1. Clone Repository
